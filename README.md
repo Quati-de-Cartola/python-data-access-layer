@@ -13,13 +13,17 @@ It focuses on building a simple and reusable structure for connecting a Python a
 - Database connection using psycopg2
 - Data insertion using Faker (random generated data)
 - Select data from the database
-- Deçete records from the database
+- Delete records from the database
 - Simple and reusable database structure
+- Display data using Tkinter interface (Treeview)
+- Automatic test data generation using Faker
+- Clean and reusable database structure
 
 ## Project Structure
 * connect.py        -> Database connection
 * creating_table.py -> Creating 'product' table
-* app_db.py         -> Database operations (insert, select, delete)
+* app_db.py         -> Database operations (CRUD)
+* app_gui.py        -> Graphical user interface (Tkinter)
 
 ## Purpose
 The goal of this repository is to build a solid base for future backend projects that require interaction between Python and a relational database. It will also be used as a learning project to improve backend and database skills.
