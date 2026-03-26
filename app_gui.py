@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from app_db import AppDB
 
-class MainDB():
-    def __init_(self, root, db):
+class MainDB:
+    def __init__(self, root, db):
         self.root = root
         self.db = db
         self.root.title("Product Management by Vitor Bryan")
@@ -43,7 +43,7 @@ class MainDB():
         self.tree.heading("Code", text="Code") 
         self.tree.heading("Name", text="Name")
         self.tree.heading("Price", text="Price")
-        self.tree.grid(row=4, column=0, columnspan=3, padx=5, pady=5)
+        self.tree.grid(row=4, column=0, columnspan=4, padx=5, pady=5)
         self.tree.bind("<ButtonRelease-1>", self.on_tree_select)
         
         self.load_initial_data()
@@ -53,7 +53,7 @@ class MainDB():
         name = self.txtName.get()
         price = self.txtPrice.get()
         if code and name and price:
-            self.db.add_product(code, name, price)
+            self.db.insert_data(code, name, price)
             self.load_initial_data()
             self.clear_fields()
     
@@ -62,15 +62,15 @@ class MainDB():
         code = self.txtCode.get()
         name = self.txtName.get()
         price = self.txtPrice.get()
-
-        self.db.update_product(code, name, price)
+        
+        self.db.update_data(code, name, price)
         self.load_initial_data()
         self.clear_fields()
 
     def delete_product(self):
         code = self.txtCode.get()
         if code:
-            self.db.delete_product(code)
+            self.db.delete_data(code)
             self.load_initial_data()
             self.clear_fields()
 
@@ -96,6 +96,7 @@ class MainDB():
             self.txtName.insert(0, values[1])
             self.txtPrice.delete(0, tk.END)
             self.txtPrice.insert(0, values[2])
+
 if __name__ == "__main__":
     root = tk.Tk()
     db = AppDB()
