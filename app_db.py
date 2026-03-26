@@ -22,13 +22,13 @@ class AppDB:
             print(f"Error fetching data: {e}")
             return []
         
-    def insert_data(self, name, price):
+    def insert_data(self, code, name, price):
         try:
             self.cur.execute('''
-                INSERT INTO product (name, price) VALUES (%s, %s)
-            ''', (name, price))
+                INSERT INTO product (code, name, price) VALUES (%s, %s, %s)
+            ''', (code, name, price))
             self.conn.commit()
-            print(f"Product '{name}' inserted successfully with price {price}")
+            print(f"Product '{name}' inserted successfully with price {price} and code '{code}'")
         except (Exception, Error) as e:
             print(f"Error inserting data: {e}")
 
